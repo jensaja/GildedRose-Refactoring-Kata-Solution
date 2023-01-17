@@ -13,19 +13,19 @@ public class ItemTestFactory {
     public static final int ITEM_TEST_QUALITY = 30;
 
     /**
-     * Generates an Item with a random name, a random sellIn value (from 1 to 31) and a random quality (from 1 to 50)
+     * Generates an Item with a random name, a random sellIn value (from 4 to 31) and a random quality (from 5 to 50)
      *
      * @return an Item with random values
      */
-    private static Item createRandomItem() {
+    public static Item createRandomItem() {
         String randomName = "Random item nr. " + random.nextInt(1, Integer.MAX_VALUE);
-        int randomSellIn = random.nextInt(1, 32);
-        int randomQuality = random.nextInt(1, 51);
+        int randomSellIn = random.nextInt(4, 32);
+        int randomQuality = random.nextInt(5, 51);
         return new Item(randomName, randomSellIn, randomQuality);
     }
 
     /**
-     * Generates an Item with ITEM_TEST_NAME as name, a random sellIn value (from 1 to 31) and a random quality (from 1 to 50)
+     * Generates an Item with ITEM_TEST_NAME as name, a random sellIn value (from 4 to 31) and a random quality (from 5 to 50)
      *
      * @return an Item with ITEM_TEST_NAME and random sellIn and quality values
      */
