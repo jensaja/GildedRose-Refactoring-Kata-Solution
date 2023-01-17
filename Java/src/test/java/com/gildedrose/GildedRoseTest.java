@@ -64,4 +64,67 @@ class GildedRoseTest {
         assertEquals(0, testItem.quality);
     }
 
+    @Test
+    public void whenUpdateQualityOfAgedBrieThenQualityIncreases() {
+        Item testItem = ItemTestFactory.createTestAgedBrie();
+        runUpdateQualityForSingleItem(testItem);
+        assertTrue(testItem.quality > ItemTestFactory.ITEM_TEST_QUALITY);
+    }
+
+    @Test
+    public void whenUpdateQualityOfAgedBrieThenQualityGetsNoHigherThan50() {
+        Item testItem = ItemTestFactory.createTestAgedBrie();
+        testItem.quality = 49;
+
+        // first update: quality was 49 --> gets updated to 50
+        runUpdateQualityForSingleItem(testItem);
+        assertEquals(50, testItem.quality);
+
+        // second update: quality was 50 --> quality doesn't get any higher
+        runUpdateQualityForSingleItem(testItem);
+        assertEquals(50, testItem.quality);
+    }
+
+    @Test
+    public void whenUpdateQualityOfSulfurasThenNeitherSellInNorQualityGetsChanged() {
+        Item testItem = ItemTestFactory.createTestItem();
+        testItem.name = "Sulfuras, Hand of Ragnaros";
+
+        runUpdateQualityForSingleItem(testItem);
+        assertEquals(ItemTestFactory.ITEM_TEST_SELLIN, testItem.sellIn);
+        assertEquals(ItemTestFactory.ITEM_TEST_QUALITY, testItem.quality);
+    }
+
+    private void runUpdateQualityAndAssertThatQualityHasIncreased(Item testItem, int qualityIncrease) {
+        int qualityBeforeUpdate = testItem.quality;
+        runUpdateQualityForSingleItem(testItem);
+        assertEquals(qualityBeforeUpdate + qualityIncrease, testItem.quality);
+    }
+
+    @Test
+    public void whenUpdateQualityOfBackstagePassesThenQualityChangesNormallyUpTo11DaysToTheConcert() {
+        Item testItem = ItemTestFactory.createTestBackstagePass(11);
+        runUpdateQualityAndAssertThatQualityHasIncreased(testItem, 1);
+    }
+
+    @Test
+    public void whenUpdateQualityOfBackstagePassesThenQualityIncreasesByTwoWhen10DaysOrLessToTheConcert() {
+        Item testItem = ItemTestFactory.createTestBackstagePass(9);
+        runUpdateQualityAndAssertThatQualityHasIncreased(testItem, 2);
+    }
+
+    @Test
+    public void whenUpdateQualityOfBackstagePassesThenQualityIncreasesByThreeWhen5DaysOrLessToTheConcert() {
+        Item testItem = ItemTestFactory.createTestBackstagePass(5);
+        runUpdateQualityAndAssertThatQualityHasIncreased(testItem, 3);
+    }
+
+    @Test
+    public void whenUpdateQualityOfBackstagePassesThenQualityDropsToZeroAfterConcert() {
+        Item testItem = ItemTestFactory.createTestBackstagePass(0);
+
+        runUpdateQualityForSingleItem(testItem);
+        assertEquals(0, testItem.quality);
+    }
+
 }

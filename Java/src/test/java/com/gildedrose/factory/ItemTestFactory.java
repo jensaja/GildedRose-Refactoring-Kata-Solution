@@ -44,4 +44,24 @@ public class ItemTestFactory {
         return new Item(ITEM_TEST_NAME, ITEM_TEST_SELLIN, ITEM_TEST_QUALITY);
     }
 
+    /**
+     * Generates an Item with "Aged Brie" as name, ITEM_TEST_SELLIN as sellIn value and ITEM_TEST_QUALITY as quality value
+     *
+     * @return an Item named "Aged Brie" with constant values for each field
+     */
+    public static Item createTestAgedBrie() {
+        return new Item("Aged Brie", ITEM_TEST_SELLIN, ITEM_TEST_QUALITY);
+    }
+
+    /**
+     *
+     * Generates an Item with "Backstage passes to a TAFKAL80ETC concert" as name, daysToConcert as sellIn value and ITEM_TEST_QUALITY as quality value
+     *
+     * @param daysToConcert the amount of days until the concert
+     * @return an Item named "Backstage passes to a TAFKAL80ETC concert" with daysToConcert as sellIn value and a constant value for quality
+     */
+    public static Item createTestBackstagePass(int daysToConcert) {
+        return new Item("Backstage passes to a TAFKAL80ETC concert", daysToConcert, ITEM_TEST_QUALITY);
+    }
+
 }
