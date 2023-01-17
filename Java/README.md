@@ -1,4 +1,10 @@
-# Gilded Rose starting position in Java
+# Gilded Rose solution in Java
+
+## Run unit tests
+
+```
+mvn test
+```
 
 ## Run the Text Fixture from Command-Line
 
