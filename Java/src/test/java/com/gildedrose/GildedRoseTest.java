@@ -23,14 +23,14 @@ class GildedRoseTest {
     public void whenUpdateQualityThenSellInValueGetsDecreased() {
         Item testItem = ItemTestFactory.createTestItem();
         runUpdateQualityForSingleItem(testItem);
-        assertTrue(testItem.sellIn < ItemTestFactory.ITEM_TEST_SELLIN);
+        assertEquals(ItemTestFactory.ITEM_TEST_SELLIN - 1, testItem.sellIn);
     }
 
     @Test
     public void whenUpdateQualityThenQualityValueGetsDecreased() {
         Item testItem = ItemTestFactory.createTestItem();
         runUpdateQualityForSingleItem(testItem);
-        assertTrue(testItem.quality < ItemTestFactory.ITEM_TEST_QUALITY);
+        assertEquals(ItemTestFactory.ITEM_TEST_QUALITY - 1, testItem.quality);
     }
 
     @Test
