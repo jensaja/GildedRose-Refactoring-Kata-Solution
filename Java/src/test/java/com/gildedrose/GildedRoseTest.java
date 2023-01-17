@@ -127,4 +127,29 @@ class GildedRoseTest {
         assertEquals(0, testItem.quality);
     }
 
+    @Test
+    public void whenUpdateQualityOfConjuredItemThenQualityDecreasesTwiceAsFast() {
+        Item testItem = ItemTestFactory.createTestConjuredItem();
+
+        runUpdateQualityForSingleItem(testItem);
+        assertEquals(ItemTestFactory.ITEM_TEST_QUALITY - 2, testItem.quality);
+    }
+
+    @Test
+    public void whenUpdateQualityOfConjuredItemAndSellByDateHasPassedThenQualityDecreasesFourTimesAsFast() {
+        Item testItem = ItemTestFactory.createTestConjuredItem();
+        testItem.sellIn = 0;
+
+        runUpdateQualityForSingleItem(testItem);
+        assertEquals(ItemTestFactory.ITEM_TEST_QUALITY - 4, testItem.quality);
+    }
+
+    @Test
+    public void whenUpdateQualityOfConjuredItemThenQualityGetsNeverNegative() {
+        Item testItem = ItemTestFactory.createTestConjuredItem();
+        testItem.quality = 1;
+
+        runUpdateQualityForSingleItem(testItem);
+        assertEquals(0, testItem.quality);
+    }
 }

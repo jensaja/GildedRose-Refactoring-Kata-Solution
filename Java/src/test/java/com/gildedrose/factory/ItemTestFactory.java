@@ -54,7 +54,6 @@ public class ItemTestFactory {
     }
 
     /**
-     *
      * Generates an Item with "Backstage passes to a TAFKAL80ETC concert" as name, daysToConcert as sellIn value and ITEM_TEST_QUALITY as quality value
      *
      * @param daysToConcert the amount of days until the concert
@@ -62,6 +61,15 @@ public class ItemTestFactory {
      */
     public static Item createTestBackstagePass(int daysToConcert) {
         return new Item("Backstage passes to a TAFKAL80ETC concert", daysToConcert, ITEM_TEST_QUALITY);
+    }
+
+    /**
+     * Generates an Item with "Conjured cake" as name, ITEM_TEST_SELLIN as sellIn value and ITEM_TEST_QUALITY as quality value
+     *
+     * @return an Item named "Conjured cake" with constant values for each field
+     */
+    public static Item createTestConjuredItem() {
+        return new Item("Conjured cake", ITEM_TEST_SELLIN, ITEM_TEST_QUALITY);
     }
 
 }
