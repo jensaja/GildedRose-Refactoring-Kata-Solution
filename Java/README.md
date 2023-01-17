@@ -3,7 +3,7 @@
 ## Run unit tests
 
 ```
-mvn test
+./mvnw test
 ```
 
 ## Run the Text Fixture from Command-Line

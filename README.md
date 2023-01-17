@@ -17,3 +17,7 @@ Its final subclasses implement the `update` method, which performs the update lo
 ![class diagram](GildedRoseClassUML.png?raw=true "class diagram")
 
 The `GildedRose::updateQuality` method simply loops through all `items`, creates an `UpdatableItem` object (actual class depends on detected item type) and calls its `updateOriginalItem` method.
+
+## Run the application
+
+See [Java folder](Java)
