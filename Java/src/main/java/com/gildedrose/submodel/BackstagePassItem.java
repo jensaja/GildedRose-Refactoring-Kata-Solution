@@ -4,6 +4,8 @@ import com.gildedrose.Item;
 
 public class BackstagePassItem extends IncreasingQualityItem {
 
+    public static final String KEY = "Backstage passes to a TAFKAL80ETC concert";
+
     public BackstagePassItem(Item item) {
         super(item);
     }

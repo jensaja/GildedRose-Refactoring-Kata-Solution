@@ -4,6 +4,8 @@ import com.gildedrose.Item;
 
 public class LegendaryItem extends UpdatableItem {
 
+    public static final String KEY = "Sulfuras, Hand of Ragnaros";
+
     public LegendaryItem(Item item) {
         super(item);
     }

@@ -1,6 +1,7 @@
 package com.gildedrose;
 
 import com.gildedrose.factory.ItemTestFactory;
+import com.gildedrose.submodel.LegendaryItem;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -88,7 +89,7 @@ class GildedRoseTest {
     @Test
     public void whenUpdateQualityOfSulfurasThenNeitherSellInNorQualityGetsChanged() {
         Item testItem = ItemTestFactory.createTestItem();
-        testItem.name = "Sulfuras, Hand of Ragnaros";
+        testItem.name = LegendaryItem.KEY;
 
         runUpdateQualityForSingleItem(testItem);
         assertEquals(ItemTestFactory.ITEM_TEST_SELLIN, testItem.sellIn);
