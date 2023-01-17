@@ -20,8 +20,7 @@ class GildedRose {
                     case "Sulfuras, Hand of Ragnaros" -> new LegendaryItem(item);
                     default -> new ClassicItem(item);
                 };
-                updatableItem.update();
-                updatableItem.copyUpdatedValuesToItem(item);
+                updatableItem.updateOriginalItem();
             });
     }
 }
