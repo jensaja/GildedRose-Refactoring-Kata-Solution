@@ -25,23 +25,20 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            if (!item.name.equals("Aged Brie")
-                    && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (item.quality > 0) {
-                    if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                        decreaseQuality(item);
-                    }
-                }
-            } else {
-                increaseQuality(item);
-
-                if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            switch (item.name) {
+                case "Aged Brie" -> increaseQuality(item);
+                case "Backstage passes to a TAFKAL80ETC concert" -> {
+                    increaseQuality(item);
                     if (item.sellIn < 11) {
                         increaseQuality(item);
                     }
-
                     if (item.sellIn < 6) {
                         increaseQuality(item);
+                    }
+                }
+                default -> {
+                    if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                        decreaseQuality(item);
                     }
                 }
             }
@@ -51,16 +48,14 @@ class GildedRose {
             }
 
             if (item.sellIn < 0) {
-                if (!item.name.equals("Aged Brie")) {
-                    if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                switch (item.name) {
+                    case "Aged Brie" -> increaseQuality(item);
+                    case "Backstage passes to a TAFKAL80ETC concert" -> item.quality = 0;
+                    default -> {
                         if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
                             decreaseQuality(item);
                         }
-                    } else {
-                        item.quality = 0;
                     }
-                } else {
-                    increaseQuality(item);
                 }
             }
         }
