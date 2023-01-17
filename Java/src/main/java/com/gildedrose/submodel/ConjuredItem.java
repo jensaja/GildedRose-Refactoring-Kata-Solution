@@ -4,6 +4,8 @@ import com.gildedrose.Item;
 
 public class ConjuredItem extends DecreasingQualityItem {
 
+    public static final String KEY_PREFIX = "Conjured ";
+
     public ConjuredItem(Item item) {
         super(item);
     }

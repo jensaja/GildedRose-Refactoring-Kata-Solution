@@ -1,6 +1,8 @@
 package com.gildedrose.factory;
 
 import com.gildedrose.Item;
+import com.gildedrose.submodel.AgedItem;
+import com.gildedrose.submodel.BackstagePassItem;
 
 import java.util.Random;
 
@@ -50,7 +52,7 @@ public class ItemTestFactory {
      * @return an Item named "Aged Brie" with constant values for each field
      */
     public static Item createTestAgedBrie() {
-        return new Item("Aged Brie", ITEM_TEST_SELLIN, ITEM_TEST_QUALITY);
+        return new Item(AgedItem.KEY, ITEM_TEST_SELLIN, ITEM_TEST_QUALITY);
     }
 
     /**
@@ -60,7 +62,7 @@ public class ItemTestFactory {
      * @return an Item named "Backstage passes to a TAFKAL80ETC concert" with daysToConcert as sellIn value and a constant value for quality
      */
     public static Item createTestBackstagePass(int daysToConcert) {
-        return new Item("Backstage passes to a TAFKAL80ETC concert", daysToConcert, ITEM_TEST_QUALITY);
+        return new Item(BackstagePassItem.KEY, daysToConcert, ITEM_TEST_QUALITY);
     }
 
     /**

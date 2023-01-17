@@ -4,6 +4,8 @@ import com.gildedrose.Item;
 
 public class AgedItem extends IncreasingQualityItem {
 
+    public static final String KEY = "Aged Brie";
+
     public AgedItem(Item item) {
         super(item);
     }
