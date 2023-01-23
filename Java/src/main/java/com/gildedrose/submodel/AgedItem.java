@@ -18,5 +18,8 @@ public class AgedItem extends IncreasingQualityItem {
     public void update() {
         increaseQuality();
         decreaseSellIn();
+        if (sellIn < 0) {
+            increaseQuality();
+        }
     }
 }

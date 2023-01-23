@@ -73,6 +73,15 @@ class GildedRoseTest {
     }
 
     @Test
+    public void whenUpdateQualityOfAgedBrieAndSellByDateHasPassedThenQualityIncreasesTwiceAsFast() {
+        Item testItem = ItemTestFactory.createTestAgedBrie();
+        testItem.sellIn = 0;
+
+        runUpdateQualityForSingleItem(testItem);
+        assertEquals(ItemTestFactory.ITEM_TEST_QUALITY + 2, testItem.quality);
+    }
+
+    @Test
     public void whenUpdateQualityOfAgedBrieThenQualityGetsNoHigherThan50() {
         Item testItem = ItemTestFactory.createTestAgedBrie();
         testItem.quality = 49;
